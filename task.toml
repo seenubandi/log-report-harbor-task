@@ -1,0 +1,24 @@
+[task]
+name = "dynamo/log-report"
+description = "Parse access.log and produce a JSON report with request counts per IP and total requests."
+
+artifacts = ["report.json"]
+
+[verifier]
+timeout_sec = 30
+
+[environment]
+allow_internet = false
+mcp_servers = []
+
+[metadata]
+category = "data_processing"
+subcategory = "log_parsing"
+task_objective = "Generate a correct JSON report from access.log with accurate counts."
+artifact_type = "json"
+expert_time_estimate_hours = 1
+model_tested = "gpt-5"
+agent_tested = "nop, oracle"
+difficulty_explanation = "Requires correct parsing and aggregation, not just file creation."
+solution_explanation = "Count requests per IP and total requests, output structured JSON."
+verification_explanation = "Verifier checks exact computed values, not just file existence."
